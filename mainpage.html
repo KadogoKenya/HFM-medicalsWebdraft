@@ -10,49 +10,51 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     
-</head>
-<body>
-    <style>
-        body {
 
-            background-image: url('./static/media/lecturerIcon3.jpeg'); /* replace with your image URL */
-            background-size: cover; /* scale the image to cover the entire background */
-            background-position: center; /* center the image horizontally and vertically */
-            font-family: Arial, sans-serif;
-            color: white;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            z-index: 1;
-        }
+    <style>
 
         .page-container {
-            position: relative;
-            width: 800px;
-            height: 600px;
+            background-image: url('./static/media/lecturerIcon3.jpeg');
+            background-size: cover;
+            background-position: center;
+            font-family: Arial, sans-serif;
+            color: white;
+            margin: 0;
+            padding-top: 100px;
+        }
+        .container{
+            background-image: url('./static/media/liverImage.jpeg');
+            background-size: cover;
+            background-position: center;
+            
+        }
+    
+        .page-container {
             display: flex;
             justify-content: center;
             align-items: center;
+            flex-direction: column;
             text-align: center;
+            height: 100vh;
         }
-
+    
+    
+    
         .welcome-text h1, .welcome-text h2, .welcome-text p {
             margin: 10;
             text-align: center;
             transform: translate(var(--x), var(--y));
         }
-
+    
         .welcome-text {
             text-align: center; /* center the text horizontally */
         }
-
+    
         .welcome-text h1 {
             display: inline-block; /* make the h1 element an inline block */
             width: 100%; /* set the width of the h1 element to 100% */
         }
-
+    
         .welcome-text h2 {
             display: inline-block; /* make the h2 element an inline block */
             width: fit-content; /* set the width of the h2 element to fit its content */
@@ -60,11 +62,11 @@
             padding: 0 10px; /* add some padding to the h2 element */
             box-sizing: border-box; /* include padding in the width calculation */
         }
-
+    
         .welcome-text p {
             margin-top: 10px; /* add some margin top to the p element */
         }
-
+    
         .image-wrapper {
             position: absolute;
             width: 100%;
@@ -74,23 +76,37 @@
             align-items: center;
             flex-wrap: wrap;
         }
-
+    
         .image-item {
             position: absolute;
             transform: translate(var(--x), var(--y));
         }
-
+    
         .image-item a {
             position: relative;
             display: block;
         }
-
+    
         .image-item img {
             width: 100px;
             height: 100px;
             border-radius: 8px;
         }
-
+    
+        image-item img image14 {
+            width: 150px;
+            height: 100px;
+            border-radius: 8px;
+        }
+    
+    
+        image-item  item  {
+            width: 100px;
+            height: 100px;
+            border-radius: 8px;
+        }
+    
+    
         .more-button {
             position: absolute;
             bottom: 5px;
@@ -102,43 +118,51 @@
             font-size: 12px;
             cursor: pointer;
         }
-
+    
         .more-button:hover {
             background-color: rgba(0, 0, 0, 0.8);
         }
-
+    
         .more-button.left {
             left: 5px;
         }
-
+    
         .more-button.right {
             right: 5px;
         }
-
+    
         .more-button.center {
             right: 25px;
         }
-
+    
         .more-button.black {
             background-color: rgba(0, 0, 0, 0.8);
         }
-
+        .more-button.white {
+            background-color: rgba(255, 255, 255, 0.8);
+            color: black; /* Set text color to black */
+        }
+    
+        .more-button.white:hover {
+            background-color: #0767ed; 
+        }
+    
         .more-button.green {
             background-color: green;
         }
-
+    
         .more-button.blue {
             background-color: blue;
         }
-
+    
         .more-button.red {
             background-color: red;
         }
-
+    
         .more-button.lightblue {
             background-color: #9985f2;
         }
-
+    
         .more-button.skyblue {
             background-color: #85baf2;
         }
@@ -148,12 +172,17 @@
         .more-button.berylblue{
             background-color: #405fa8;
         }
-        .navbar{
-            z-index: 10;
-
-        }
-                
-
+    
+        .navbar {
+            font-family: 'Roboto', sans-serif; /* Apply the Roboto font to the navbar */
+        } 
+        .navbar-nav .nav-link {
+            color: #213d91 !important; /* Use !important to override any other styles */
+            size: 50;
+            font-size: 1.25rem; /* Increase font size */
+            font-weight: bold; 
+        }              
+    
         .modal {
             display: none; 
             position: fixed; 
@@ -166,7 +195,7 @@
             background-color: rgb(0,0,0);
             background-color: rgba(0,0,0,0.4);
         }
-
+    
         .modal-content {
             background-color: #fefefe;
             margin: 15% auto;
@@ -175,263 +204,301 @@
             width: 80%;
             color: black;
         }
-
+    
         .close {
             color: #aaa;
             float: right;
             font-size: 28px;
             font-weight: bold;
         }
-
+    
         .close:hover,
         .close:focus {
             color: black;
             text-decoration: none;
             cursor: pointer;
         }
-
+        body {
+            margin: 0;
+            padding: 0;
+        }
+    
+        .container {
+            position: relative;
+            height: 100vh; /* Make the hero section full-screen height */
+            background-color: #f0f0f0; /* Add a background color to ensure the image covers the entire screen */
+        }
+    
+        .container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Ensure the image covers the entire screen */
+        }
+    
+        .content {
+            padding: 20px;
+        }
+    
+        /* Add a smooth scrolling effect */
+        html {
+            scroll-behavior: smooth;
+        }
+        hr{
+            color: #0767ed;
+            padding: auto;
+            size: 5px;
+        }
+    
     </style>
+    
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-    <a class="navbar-brand" href="#">
-            <img src="./static/media/Logo2.png" alt="Logo" width="120" height="50" class="d-inline-block align-top">
-            
-        </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ml-auto">
-            <li class="nav-item active">
-                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">About</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Services</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Contact</a>
-            </li>
-        </ul>
-    </div>
-</nav>
-
-
-    <div class="page-container">
-        <div class="welcome-text text-center" style="--x: -140px; --y: -10px;">
-            <h1 class="w-100">WELCOME TO</h1>
-            <h2 class="w-100">HFM</h2>
-            <p class="mt-3">--Hybrid Fusion Medicals--</p>
-        </div>
-        <div class="image-wrapper">
-            <div class="image-item" style="--x: -90px; --y: -55px;">
-                <div class="image-item" style="--x: -150px; --y: -55px;">
-                <div class="image-item" style="--x: -170px; --y: -45px;">
-                <img src="./static/media/Picture7.jpg" alt="Image 1">
-                    <button class="more-button right red" data-modal="modal1">more</button>
-                </div>
-                <!-- <div class="image-item" style="--x: 50px; --y: -150px;">
-                    <img src="https://via.placeholder.com/100" alt="Image 2">
-                    <button class="more-button" data-modal="modal2">more</button>
-                </div> -->
-                <div class="image-item" style="--x: 180px; --y: -100px;">
-                    <img src="./static/media/Picture3.png" alt="Image 3">
-                    <button class="more-button center lightblue" data-modal="modal3">more</button>
-                </div>
-                <!-- <div class="image-item" style="--x: 155px; --y: -150px;">
-                    <img src="https://via.placeholder.com/100" alt="Image 4">
-                    <button class="more-button" data-modal="modal4">more</button>
-                </div> -->
-                <!-- <div class="image-item" style="--x: -100px; --y: -100px;">
-                    <img src="https://via.placeholder.com/100" alt="Image 5">
-                    <button class="more-button" data-modal="modal5">more</button>
-                </div> -->
-                <div class="image-item" style="--x: -10px; --y: -110px;">
-                    <img src="./static/media/Picture5.png" alt="Image 6">
-                    <button class="more-button center black" data-modal="modal6">more</button>
-                </div>
-                <div class="image-item" style="--x: 280px; --y: -70px;">
-                    <img src="./static/media/Picture2.png" alt="Image 7">
-                    <button class="more-button center red" data-modal="modal7">more</button>
-                </div>
-                <div class="image-item" style="--x: -100px; --y: -130px;">
-                    <img src="./static/media/Picture6.png" alt="Image 8">
-                    <button class="more-button right skyblue" data-modal="modal8">more</button>
-                </div>
-                <div class="image-item" style="--x: 90px; --y: -120px;">
-                    <img src="./static/media/Picture4.png" alt="Image 9">
-                    <button class="more-button center black" data-modal="modal9">more</button>
-                </div>
-                <div class="image-item" style="--x: -200px; --y: 50px;">
-                    <img src="./static/media/Picture8.png" alt="Image 10">
-                    <button class="more-button right black" data-modal="modal10">more</button>
-                </div>
-                <div class="image-item" style="--x: -130px; --y: 147px;">
-                    <img src="./static/media/Picture9.jpg" alt="Image 11">
-                    <button class="more-button left lightpurple" data-modal="modal11">more</button>
-                </div>
-                <div class="image-item" style="--x: -36px; --y: 200px;">
-                    <img src="./static/media/Picture10.png" alt="Image 12">
-                    <button class="more-button left berylblue" data-modal="modal12">more</button>
-                </div>
-                <div class="image-item" style="--x: 350px; --y: 200px;">
-                    <img src="./static/media/Picture14.jpg" alt="Image 13">
-                    <button class="more-button right red" data-modal="modal13">more</button>
-                </div>
-                <div class="image-item" style="--x: 60px; --y: 250px;">
-                    <img src="./static/media/Picture11.png" alt="Image 14">
-                    <button class="more-button right skyblue" data-modal="modal14">more</button>
-                </div>
-                <div class="image-item" style="--x: 250px; --y: 220px;">
-                    <img src="./static/media/Picture13.jpg" alt="Image 15">
-                    <button class="more-button right red" data-modal="modal15">more</button>
-                </div>
-                <div class="image-item" style="--x: 150px; --y: 230px;">
-                    <img src="./static/media/Picture12.jpg" alt="Image 16">
-                    <button class="more-button right skyblue" data-modal="modal16">more</button>
-                </div>
-                <div class="image-item" style="--x: 380px; --y: -30px;">
-                    <img src="./static/media/Picture1.png" alt="Image 17">
-                    <button class="more-button center green" data-modal="modal17">more</button>
+</head>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-white fixed-top">
+            <a class="navbar-brand" href="#">
+                    <img src="./static/media/logo image.png" alt="Logo" width="130" height="80" class="d-inline-block align-top">
+                    
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <div class="page-container">
+            <div class="welcome-text text-center" style="--x: -100px; --y: -10px;">
+                <h1><img src="./static/media/welcome image.png" width="240" height="100" alt="Image 1"></h1>
+                <p class="logo" style ="--x: -100px; --y: -60px;"><img src="./static/media/Logo1.png" width="150" height="90"  alt="Image 1"></p>
+            </div>
+        
+            <div class="image-wrapper">
+                <div class="image-item" style="--x: -90px; --y: -55px;">
+                    <div class="image-item" style="--x: -150px; --y: -55px;">
+                    <div class="image-item" style="--x: -170px; --y: -45px;">
+                    <img src="./static/media/Picture7.jpg" alt="Image 1">
+                        <button class="more-button right white" data-modal="modal1">more</button>
+                    </div>
+                    
+                    <div class="image-item" style="--x: 180px; --y: -100px;">
+                        <img src="./static/media/Picture3.png" alt="Image 3">
+                        <button class="more-button center white" data-modal="modal3">more</button>
+                    </div>
+                    
+                    <div class="image-item" style="--x: -10px; --y: -110px;">
+                        <img src="./static/media/Picture5.png" alt="Image 6">
+                        <button class="more-button center white" data-modal="modal6">more</button>
+                    </div>
+                    <div class="image-item" style="--x: 280px; --y: -70px;">
+                        <img src="./static/media/Picture2.png" alt="Image 7">
+                        <button class="more-button center white" data-modal="modal7">more</button>
+                    </div>
+                    <div class="image-item" style="--x: -100px; --y: -130px;">
+                        <img src="./static/media/Picture6.png" alt="Image 8">
+                        <button class="more-button right white" data-modal="modal8">more</button>
+                    </div>
+                    <div class="image-item" style="--x: 90px; --y: -120px;">
+                        <img src="./static/media/Picture4.png" alt="Image 9">
+                        <button class="more-button center white" data-modal="modal9">more</button>
+                    </div>
+                    <div class="image-item" style="--x: -200px; --y: 50px;">
+                        <img src="./static/media/Picture8.png" alt="Image 10">
+                        <button class="more-button right white" data-modal="modal10">more</button>
+                    </div>
+                    <div class="image-item" style="--x: -130px; --y: 147px;">
+                        <img src="./static/media/Picture9.jpg" alt="Image 11">
+                        <button class="more-button left white" data-modal="modal11">more</button>
+                    </div>
+                    <div class="image-item" style="--x: -36px; --y: 200px;">
+                        <img src="./static/media/Picture10.png" alt="Image 12">
+                        <button class="more-button left white" data-modal="modal12">more</button>
+                    </div>
+                    <div class="image-item" style="--x: 350px; --y: 200px;">
+                        <img src="./static/media/Picture14.jpg" alt="Image 13">
+                        <button class="more-button right white" data-modal="modal13">more</button>
+                    </div>
+                    <div class="image-item" style="--x: 60px; --y: 200px;">
+                        <img src="./static/media/Picture11.png" width="150px" height="75" alt="Image 14">
+                        <button class="more-button right white" data-modal="modal14">more</button>
+                    </div>
+                    <div class="image-item image14" style="--x: 250px; --y: 220px;">
+                        <img src="./static/media/Picture13.jpg" alt="Image 15">
+                        <button class="more-button right white" data-modal="modal15">more</button>
+                    </div>
+                    <div class="image-item" style="--x: 150px; --y: 230px;">
+                        <img src="./static/media/Picture12.jpg" alt="Image 16">
+                        <button class="more-button right white" data-modal="modal16">more</button>
+                    </div>
+                    <div class="image-item" style="--x: 380px; --y: -30px;">
+                        <img src="./static/media/Picture1.png" alt="Image 17">
+                        <button class="more-button center white" data-modal="modal17">more</button>
+                    </div>
+                    <div class="image-item" style="--x: 380px; --y: -30px;">
+                        <img src="./static/media/liverImage-main.png" alt="Image 18">
+                        <button class="more-button center white" data-modal="modal8">more</button>
+                    </div>
                 </div>
             </div>
+           
         </div>
-    </div>
-
-    <!-- Modals -->
-    <div id="modal1" class="modal">
-        <div class="modal-content">
-            <span class="close" data-close="modal1">&times;</span>
-            <p>Information about Image 1</p>
+        
+        <!-- <div class="container mt-5 pt-5">
+            <section class="hero text-center">
+                <img src="./static/media/LiverImage.png" alt="Hero Image" class="img-fluid">
+            </section>
+        </div> -->
+        
+        
+        <!-- Modals -->
+        <div id="modal1" class="modal">
+            <div class="modal-content">
+                <span class="close" data-close="modal1">&times;</span>
+                <p>Information about Image 1</p>
+            </div>
         </div>
-    </div>
-    <div id="modal2" class="modal">
-        <div class="modal-content">
-            <span class="close" data-close="modal2">&times;</span>
-            <p>Information about Image 2</p>
+        <div id="modal2" class="modal">
+            <div class="modal-content">
+                <span class="close" data-close="modal2">&times;</span>
+                <p>Information about Image 2</p>
+            </div>
         </div>
-    </div>
-    <div id="modal3" class="modal">
-        <div class="modal-content">
-            <span class="close" data-close="modal3">&times;</span>
-            <p>Information about Image 3</p>
+        <div id="modal3" class="modal">
+            <div class="modal-content">
+                <span class="close" data-close="modal3">&times;</span>
+                <p>Information about Image 3</p>
+            </div>
         </div>
-    </div>
-    <div id="modal4" class="modal">
-        <div class="modal-content">
-            <span class="close" data-close="modal4">&times;</span>
-            <p>Information about Image 4</p>
+        <div id="modal4" class="modal">
+            <div class="modal-content">
+                <span class="close" data-close="modal4">&times;</span>
+                <p>Information about Image 4</p>
+            </div>
         </div>
-    </div>
-    <div id="modal5" class="modal">
-        <div class="modal-content">
-            <span class="close" data-close="modal5">&times;</span>
-            <p>Information about Image 5</p>
+        <div id="modal5" class="modal">
+            <div class="modal-content">
+                <span class="close" data-close="modal5">&times;</span>
+                <p>Information about Image 5</p>
+            </div>
         </div>
-    </div>
-    <div id="modal6" class="modal">
-        <div class="modal-content">
-            <span class="close" data-close="modal6">&times;</span>
-            <p>Information about Image 6</p>
+        <div id="modal6" class="modal">
+            <div class="modal-content">
+                <span class="close" data-close="modal6">&times;</span>
+                <p>Information about Image 6</p>
+            </div>
         </div>
-    </div>
-    <div id="modal7" class="modal">
-        <div class="modal-content">
-            <span class="close" data-close="modal7">&times;</span>
-            <p>Information about Image 7</p>
+        <div id="modal7" class="modal">
+            <div class="modal-content">
+                <span class="close" data-close="modal7">&times;</span>
+                <p>Information about Image 7</p>
+            </div>
         </div>
-    </div>
-    <div id="modal8" class="modal">
-        <div class="modal-content">
-            <span class="close" data-close="modal8">&times;</span>
-            <p>Information about Image 8</p>
+        <div id="modal8" class="modal">
+            <div class="modal-content">
+                <span class="close" data-close="modal8">&times;</span>
+                <p>Information about Image 8</p>
+            </div>
         </div>
-    </div>
-    <div id="modal9" class="modal">
-        <div class="modal-content">
-            <span class="close" data-close="modal9">&times;</span>
-            <p>Information about Image 9</p>
+        <div id="modal9" class="modal">
+            <div class="modal-content">
+                <span class="close" data-close="modal9">&times;</span>
+                <p>Information about Image 9</p>
+            </div>
         </div>
-    </div>
-    <div id="modal10" class="modal">
-        <div class="modal-content">
-            <span class="close" data-close="modal10">&times;</span>
-            <p>Information about Image 10</p>
+        <div id="modal10" class="modal">
+            <div class="modal-content">
+                <span class="close" data-close="modal10">&times;</span>
+                <p>Information about Image 10</p>
+            </div>
         </div>
-    </div>
-    <div id="modal11" class="modal">
-        <div class="modal-content">
-            <span class="close" data-close="modal11">&times;</span>
-            <p>Information about Image 11</p>
+        <div id="modal11" class="modal">
+            <div class="modal-content">
+                <span class="close" data-close="modal11">&times;</span>
+                <p>Information about Image 11</p>
+            </div>
         </div>
-    </div>
-    <div id="modal12" class="modal">
-        <div class="modal-content">
-            <span class="close" data-close="modal12">&times;</span>
-            <p>Information about Image 12</p>
+        <div id="modal12" class="modal">
+            <div class="modal-content">
+                <span class="close" data-close="modal12">&times;</span>
+                <p>Information about Image 12</p>
+            </div>
         </div>
-    </div>
-    <div id="modal13" class="modal">
-        <div class="modal-content">
-            <span class="close" data-close="modal13">&times;</span>
-            <p>Information about Image 13</p>
+        <div id="modal13" class="modal">
+            <div class="modal-content">
+                <span class="close" data-close="modal13">&times;</span>
+                <p>Information about Image 13</p>
+            </div>
         </div>
-    </div>
-    <div id="modal14" class="modal">
-        <div class="modal-content">
-            <span class="close" data-close="modal14">&times;</span>
-            <p>Information about Image 14</p>
+        <div id="modal14" class="modal">
+            <div class="modal-content">
+                <span class="close" data-close="modal14">&times;</span>
+                <p>Information about Image 14</p>
+            </div>
         </div>
-    </div>
-    <div id="modal15" class="modal">
-        <div class="modal-content">
-            <span class="close" data-close="modal15">&times;</span>
-            <p>Information about Image 15</p>
+        <div id="modal15" class="modal">
+            <div class="modal-content">
+                <span class="close" data-close="modal15">&times;</span>
+                <p>Information about Image 15</p>
+            </div>
         </div>
-    </div>
-    <div id="modal16" class="modal">
-        <div class="modal-content">
-            <span class="close" data-close="modal16">&times;</span>
-            <p>Information about Image 16</p>
+        <div id="modal16" class="modal">
+            <div class="modal-content">
+                <span class="close" data-close="modal16">&times;</span>
+                <p>Information about Image 16</p>
+            </div>
         </div>
-    </div>
-    <div id="modal17" class="modal">
-        <div class="modal-content">
-            <span class="close" data-close="modal17">&times;</span>
-            <p>Information about Image 17</p>
+        <div id="modal17" class="modal">
+            <div class="modal-content">
+                <span class="close" data-close="modal17">&times;</span>
+                <p>Information about Image 17</p>
+            </div>
         </div>
-    </div>
-
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const moreButtons = document.querySelectorAll(".more-button");
-            const modals = document.querySelectorAll(".modal");
-            const closeButtons = document.querySelectorAll(".close");
-
-            moreButtons.forEach(button => {
-                button.addEventListener("click", (e) => {
-                    const modalId = e.target.getAttribute("data-modal");
-                    const modal = document.getElementById(modalId);
-                    modal.style.display = "block";
+        <div id="modal18" class="modal">
+            <div class="modal-content">
+                <span class="close" data-close="modal18">&times;</span>
+                <p>Information about Image 18</p>
+            </div>
+        </div>
+        
+        <script>
+            document.addEventListener("DOMContentLoaded", () => {
+                const moreButtons = document.querySelectorAll(".more-button");
+                const modals = document.querySelectorAll(".modal");
+                const closeButtons = document.querySelectorAll(".close");
+        
+                moreButtons.forEach(button => {
+                    button.addEventListener("click", (e) => {
+                        const modalId = e.target.getAttribute("data-modal");
+                        const modal = document.getElementById(modalId);
+                        modal.style.display = "block";
+                    });
+                });
+        
+                closeButtons.forEach(button => {
+                    button.addEventListener("click", (e) => {
+                        const modalId = e.target.getAttribute("data-close");
+                        const modal = document.getElementById(modalId);
+                        modal.style.display = "none";
+                    });
+                });
+        
+                window.addEventListener("click", (e) => {
+                    if (e.target.classList.contains("modal")) {
+                        e.target.style.display = "none";
+                    }
                 });
             });
-
-            closeButtons.forEach(button => {
-                button.addEventListener("click", (e) => {
-                    const modalId = e.target.getAttribute("data-close");
-                    const modal = document.getElementById(modalId);
-                    modal.style.display = "none";
-                });
-            });
-
-            window.addEventListener("click", (e) => {
-                if (e.target.classList.contains("modal")) {
-                    e.target.style.display = "none";
-                }
-            });
-        });
-    </script>
-</body>
+        </script>
+        
 </html>
